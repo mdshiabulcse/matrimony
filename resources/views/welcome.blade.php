@@ -1,100 +1,405 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('frontend_layouts.main')
+@section( 'content')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+<div class="banner">
+    <div class="container">
+      <div class="banner_info">
+        <h3>Millions of verified Members</h3>
+        <a href="view_profile.html" class="hvr-shutter-out-horizontal">Create your Profile</a>
+      </div>
+    </div>
+    <div class="profile_search">
+        <div class="container wrap_1">
+        <form action="#">
+            <div class="search_top">
+           <div class="inline-block">
+            <label class="gender_1">I am looking for :</label>
+              <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                  <select>
+                      <option value="">* Select Gender</option>
+                      <option value="Male">Bride</option>
+                      <option value="Female">Groom</option>
+                  </select>
+             </div>
+          </div>
+          <div class="inline-block">
+            <label class="gender_1">Located In :</label>
+              <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                  <select>
+                      <option value="">* Select State</option>
+                      <option value="Washington">Washington</option>
+                      <option value="Texas">Texas</option>
+                      <option value="Georgia">Georgia</option>
+                      <option value="Virginia">Virginia</option>
+                      <option value="Colorado">Colorado</option>
+                 </select>
             </div>
+          </div>
+          <div class="inline-block">
+            <label class="gender_1">Interested In :</label>
+              <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                  <select><option value="">* Select Interest</option>
+                      <option value="Sports &amp; Adventure">Sports &amp; Adventure</option>
+                      <option value="Movies &amp; Entertainment">Movies &amp; Entertainment</option>
+                      <option value="Arts &amp; Science">Arts &amp; Science</option>
+                      <option value="Technology">Technology</option>
+                      <option value="Fashion">Fashion</option>
+                 </select>
+            </div>
+         </div>
+       </div>
+       <div class="inline-block">
+         <div class="age_box2" style="max-width: 220px;">
+             <label class="gender_1">Age :</label>
+          <input class="transparent" placeholder="From:" style="width: 34%;" type="text" value="">&nbsp;-&nbsp;<input class="transparent" placeholder="To:" style="width: 34%;" type="text" value="">
+         </div>
+       </div>
+         <div class="inline-block">
+            <label class="gender_1">Status :</label>
+              <div class="age_box1" style="max-width: 100%; display: inline-block;">
+                  <select>
+                      <option value="">* Select Status</option>
+                      <option value="Single">Single</option>
+                      <option value="Married">Married</option>
+                      <option value="In a Relationship">In a Relationship</option>
+                      <option value="It's Complicated">It's Complicated</option>
+                  </select>
+            </div>
+          </div>
+          <div class="submit inline-block">
+             <input id="submit-btn" class="hvr-wobble-vertical" type="submit" value="Find Matches">
+          </div>
+       </form>
+      </div>
+    </div>
+  </div>
+  <!---728x90--->
+
+  <div class="grid_1">
+        <div class="container">
+            <h1>Featured Profiles</h1>
+             <div class="heart-divider">
+              <span class="grey-line"></span>
+              <i class="fa fa-heart pink-heart"></i>
+              <i class="fa fa-heart grey-heart"></i>
+              <span class="grey-line"></span>
+          </div>
+          <ul id="flexiselDemo3">
+            <li><div class="col_1"><a href="{{ route('home') }}">
+              <img src="{{ asset('assets_frontend/images/1.jpg') }}" alt="" class="hover-animation image-zoom-in img-responsive"/>
+               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
+                  <div class="center-middle">About Him</div>
+               </div>
+               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
+            </li>
+            <li><div class="col_1"><a href="view_profile.html">
+              <img src="images/2.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
+               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
+                  <div class="center-middle">About Her</div>
+               </div>
+               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
+            </li>
+            <li><div class="col_1"><a href="view_profile.html">
+              <img src="images/3.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
+               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
+                  <div class="center-middle">About Him</div>
+               </div>
+               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
+            </li>
+            <li><div class="col_1"><a href="view_profile.html">
+              <img src="images/4.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
+               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
+                  <div class="center-middle">About Her</div>
+               </div>
+               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
+            </li>
+            <li><div class="col_1"><a href="view_profile.html">
+              <img src="images/5.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
+               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
+                  <div class="center-middle">About Him</div>
+               </div>
+               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
+            </li>
+            <li><div class="col_1"><a href="view_profile.html">
+              <img src="images/6.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
+               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
+                  <div class="center-middle">About Her</div>
+               </div>
+               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
+            </li>
+          </ul>
+          <script type="text/javascript">
+           $(window).load(function() {
+              $("#flexiselDemo3").flexisel({
+                  visibleItems: 6,
+                  animationSpeed: 1000,
+                  autoPlay:false,
+                  autoPlaySpeed: 3000,
+                  pauseOnHover: true,
+                  enableResponsiveBreakpoints: true,
+                  responsiveBreakpoints: {
+                      portrait: {
+                          changePoint:480,
+                          visibleItems: 1
+                      },
+                      landscape: {
+                          changePoint:640,
+                          visibleItems: 2
+                      },
+                      tablet: {
+                          changePoint:768,
+                          visibleItems: 3
+                      }
+                  }
+              });
+
+          });
+         </script>
+         <script type="text/javascript" src="{{ asset('assets_frontend/js/jquery.flexisel.js')}}"></script>
+      </div>
+  </div>
+  <!---728x90--->
+  <div class="grid_2">
+      <div class="container">
+          <h2>Success Stories</h2>
+             <div class="heart-divider">
+              <span class="grey-line"></span>
+              <i class="fa fa-heart pink-heart"></i>
+              <i class="fa fa-heart grey-heart"></i>
+              <span class="grey-line"></span>
+          </div>
+          <div class="row_1">
+           <div class="col-md-8 suceess_story">
+               <ul>
+                 <li>
+                        <div class="suceess_story-date">
+                          <span class="entry-1">Dec 20, 2015</span>
+                      </div>
+                      <div class="suceess_story-content-container">
+                          <figure class="suceess_story-content-featured-image">
+                             <img width="75" height="75" src="images/7.jpg" class="img-responsive" alt=""/>
+                          </figure>
+                          <div class="suceess_story-content-info">
+                              <h4><a href="#">Lorem & Ipsum</a></h4>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                        <div class="suceess_story-date">
+                          <span class="entry-1">Dec 20, 2015</span>
+                      </div>
+                      <div class="suceess_story-content-container">
+                          <figure class="suceess_story-content-featured-image">
+                             <img width="75" height="75" src="images/8.jpg" class="img-responsive" alt=""/>
+                          </figure>
+                          <div class="suceess_story-content-info">
+                              <h4><a href="#">Lorem & Ipsum</a></h4>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                        <div class="suceess_story-date">
+                          <span class="entry-1">Dec 20, 2015</span>
+                      </div>
+                      <div class="suceess_story-content-container">
+                          <figure class="suceess_story-content-featured-image">
+                             <img width="75" height="75" src="images/9.jpg" class="img-responsive" alt=""/>
+                          </figure>
+                          <div class="suceess_story-content-info">
+                              <h4><a href="#">Lorem & Ipsum</a></h4>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                        <div class="suceess_story-date">
+                          <span class="entry-1">Dec 20, 2015</span>
+                      </div>
+                      <div class="suceess_story-content-container">
+                          <figure class="suceess_story-content-featured-image">
+                             <img width="75" height="75" src="images/10.jpg" class="img-responsive" alt=""/>
+                          </figure>
+                          <div class="suceess_story-content-info">
+                              <h4><a href="#">Lorem & Ipsum</a></h4>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                        <div class="suceess_story-date">
+                          <span class="entry-1">Dec 20, 2015</span>
+                      </div>
+                      <div class="suceess_story-content-container">
+                          <figure class="suceess_story-content-featured-image">
+                             <img width="75" height="75" src="images/11.jpg" class="img-responsive" alt=""/>
+                          </figure>
+                          <div class="suceess_story-content-info">
+                              <h4><a href="#">Lorem & Ipsum</a></h4>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                        <div class="suceess_story-date">
+                          <span class="entry-1">Dec 20, 2015</span>
+                      </div>
+                      <div class="suceess_story-content-container">
+                          <figure class="suceess_story-content-featured-image">
+                             <img width="75" height="75" src="images/12.jpg" class="img-responsive" alt=""/>
+                          </figure>
+                          <div class="suceess_story-content-info">
+                              <h4><a href="#">Lorem & Ipsum</a></h4>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                        <div class="suceess_story-date">
+                          <span class="entry-1">Dec 20, 2015</span>
+                      </div>
+                      <div class="suceess_story-content-container">
+                          <figure class="suceess_story-content-featured-image">
+                             <img width="75" height="75" src="images/13.jpg" class="img-responsive" alt=""/>
+                          </figure>
+                          <div class="suceess_story-content-info">
+                              <h4><a href="#">Lorem & Ipsum</a></h4>
+                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,.<a href="#">More...</a></p>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-md-4 row_1-right">
+            <h3>News & Events</h3>
+              <div class="box_1">
+                <figure class="thumbnail1"><img width="170" height="155" src="images/14.jpg" class="img-responsive" alt=""/></figure>
+                <div class="extra-wrap">
+                  <div class="post-meta">
+                      <span class="day">
+                      <time datetime="2014-05-25T10:15:43+00:00">25</time>
+                      </span>
+                      <span class="month">
+                      <time datetime="2014-05-25T10:11:51+00:00">May</time>
+                      </span>
+                  </div>
+                  <h4 class="post-title"><a href="#">There are many variations of passages</a></h4>
+                  <div class="clearfix"> </div>
+                  <div class="post-content">The standard chunk of Lorem Ipsum used since the 1500s..</div>
+                  <a href="#" class="vertical">Read More</a>
+                </div>
+              </div>
+              <div class="box_1">
+                <figure class="thumbnail1"><img width="170" height="155" src="images/15.jpg" class="img-responsive" alt=""/></figure>
+                <div class="extra-wrap">
+                  <div class="post-meta">
+                      <span class="day">
+                      <time datetime="2014-05-25T10:15:43+00:00">25</time>
+                      </span>
+                      <span class="month">
+                      <time datetime="2014-05-25T10:11:51+00:00">May</time>
+                      </span>
+                  </div>
+                  <h4 class="post-title"><a href="#">There are many variations of passages</a></h4>
+                  <div class="clearfix"> </div>
+                  <div class="post-content">The standard chunk of Lorem Ipsum used since the 1500s..</div>
+                  <a href="#" class="vertical">Read More</a>
+                </div>
+              </div>
+              <div class="box_2">
+                <figure class="thumbnail1"><img width="170" height="155" src="images/1.jpg" class="img-responsive" alt=""/></figure>
+                <div class="extra-wrap">
+                  <div class="post-meta">
+                      <span class="day">
+                      <time datetime="2014-05-25T10:15:43+00:00">25</time>
+                      </span>
+                      <span class="month">
+                      <time datetime="2014-05-25T10:11:51+00:00">May</time>
+                      </span>
+                  </div>
+                  <h4 class="post-title"><a href="#">There are many variations of passages</a></h4>
+                  <div class="clearfix"> </div>
+                  <div class="post-content">The standard chunk of Lorem Ipsum used since the 1500s..</div>
+                  <a href="#" class="vertical">Read More</a>
+                </div>
+              </div>
+              <div class="religion">
+                 <div class="religion_1-title">Religion :</div>
+                 <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">Hindu</a>
+                  <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">Muslim</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">Christian</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">Sikh</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Inter Religion</a>
+              </div>
+              <div class="religion">
+                 <div class="religion_1-title">Country :</div>
+                 <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">India</a>
+                  <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">Australia</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">Russia</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">India</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Kuwait</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Uk</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">View All</a>
+              </div>
+              <div class="religion">
+                 <div class="religion_1-title">Caste :</div>
+                 <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">Brahmin</a>
+                  <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">Kapu</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">Kamma</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">Padmasali</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Reddy</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">View All</a>
+              </div>
+              <div class="religion">
+                 <div class="religion_1-title">Regional :</div>
+                 <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">Urdu</a>
+                  <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">Hindi</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">Telugu</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">Marwadi</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">Oriya</a>
+                   <span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">View All</a>
+              </div>
+           </div>
+           <div class="clearfix"> </div>
+         </div>
         </div>
-    </body>
-</html>
+      </div>
+      <div class="bg">
+          <div class="container">
+              <h3>Guest Messages</h3>
+              <div class="heart-divider">
+                  <span class="grey-line"></span>
+                  <i class="fa fa-heart pink-heart"></i>
+                  <i class="fa fa-heart grey-heart"></i>
+                  <span class="grey-line"></span>
+              </div>
+              <div class="col-sm-6">
+                  <div class="bg_left">
+                      <h4>But I must explain</h4>
+                      <h5>Friend of Bride</h5>
+                      <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                     <ul class="team-socials">
+                      <li><a href="#"><span class="icon-social "><i class="fa fa-facebook"></i></span></a></li>
+                      <li><a href="#"><span class="icon-social "><i class="fa fa-twitter"></i></span></a></li>
+                      <li><a href="#"><span class="icon-social"><i class="fa fa-google-plus"></i></span></a></li>
+                     </ul>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                  <div class="bg_left">
+                      <h4>But I must explain</h4>
+                      <h5>Friend of Groom</h5>
+                      <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                     <ul class="team-socials">
+                      <li><a href="#"><span class="icon-social "><i class="fa fa-facebook"></i></span></a></li>
+                      <li><a href="#"><span class="icon-social "><i class="fa fa-twitter"></i></span></a></li>
+                      <li><a href="#"><span class="icon-social"><i class="fa fa-google-plus"></i></span></a></li>
+                     </ul>
+                  </div>
+              </div>
+              <div class="clearfix"> </div>
+          </div>
+      </div>
+
+@endsection

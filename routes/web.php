@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// frontend route start
+
+Route::get('/profile-update', 'frontend\ProfileController@profile_update')->name('profile_update');
+

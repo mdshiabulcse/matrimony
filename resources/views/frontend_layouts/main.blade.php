@@ -1,9 +1,6 @@
 
 <!DOCTYPE HTML>
 <html>
-
-<!-- Mirrored from p.w3layouts.com/demos/marital/web/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 Feb 2021 05:49:42 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 <title>Marital an Wedding Category Flat Bootstarp Resposive Website Template | Home :: WETRUSTCODERS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{ asset('assets_frontend/js/jquery.min.js')}}"></script>
 <script src="{{ asset('assets_frontend/js/bootstrap.min.js')}}"></script>
 <!-- Custom Theme files -->
+<link href="{{ asset('assets_frontend/css/flexslider.css')}}" rel='stylesheet' type='text/css' />
 <link href="{{ asset('assets_frontend/css/style.css')}}" rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
@@ -81,10 +79,10 @@ if(typeof _bsa !== 'undefined' && _bsa) {
      ga('require', 'urlChangeTracker');
      ga('send', 'pageview');
    </script>
-<script async src='../../../js/autotrack.js'></script>
+<script async src='{{ asset('assets_frontend/../../../js/autotrack.js')}}'></script>
 
 <meta name="robots" content="noindex">
-<body><link rel="stylesheet" href="{{ asset('assets_frontend//assets_frontend/../../../assests/css/font-awesome.min.css')}}">
+<body><link rel="stylesheet" href="{{ asset('assets_frontend/../../../assests/css/font-awesome.min.css')}}">
 <!-- New toolbar-->
 <style>
 * {
@@ -290,8 +288,8 @@ RIGHT SIDEBAR TOGGLE SECTION
 				<li class="green">
 					<a href="#" class="icon-home"></a>
 					<ul>
-						<li><a href="login.html">Login</a></li>
-					    <li><a href="register.html">Register</a></li>
+						<li><a href="{{ route('login') }}">Login</a></li>
+					    <li><a href="{{ route('register') }}">Register</a></li>
 					    <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
@@ -416,7 +414,7 @@ RIGHT SIDEBAR TOGGLE SECTION
  </div>
 </body>
 
-<div id = "v-w3layouts"></div><script>(function(v,d,o,ai){ai=d.createElement('script');ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, '../../../../a.vdo.ai/core/v-w3layouts/vdo.ai.js');</script>
+<div id = "v-w3layouts"></div><script>(function(v,d,o,ai){ai=d.createElement('script');ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, '{{ asset('assets_frontend/../../../../a.vdo.ai/core/v-w3layouts/vdo.ai.js')}}');</script>
 
 
 </html>

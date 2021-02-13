@@ -17,18 +17,18 @@
    	        <div class="col-sm-4 row_2">
 				<div class="flexslider">
 					 <ul class="slides">
-						<li data-thumb="{{ asset('assets_frontend/images/p1.jpg')}}">
-							<img src="{{ asset('assets_frontend/images/p1.jpg')}}" style="height: 200px; width: 200px" />
+						<li data-thumb="assets_frontend/images/p1.jpg">
+							<img src="assets_frontend/images/p1.jpg" />
 						</li>
-						{{-- <li data-thumb="{{ asset('assets_frontend/images/p2.jpg')}}">
-							<img src="{{ asset('assets_frontend/images/p2.jpg')}}" />
+						<li data-thumb="assets_frontend/images/p2.jpg">
+							<img src="assets_frontend/images/p2.jpg" />
 						</li>
-						<li data-thumb="{{ asset('assets_frontend/images/p3.jpg')}}">
-							<img src="{{ asset('assets_frontend/images/p3.jpg')}}" />
+						<li data-thumb="assets_frontend/images/p3.jpg">
+							<img src="assets_frontend/images/p3.jpg" />
 						</li>
-						<li data-thumb="{{ asset('assets_frontend/images/p4.jpg')}}">
-							<img src="{{ asset('assets_frontend/images/p4.jpg')}}" />
-						</li> --}}
+						<li data-thumb="assets_frontend/images/p4.jpg">
+							<img src="assets_frontend/images/p4.jpg" />
+						</li>
 					 </ul>
 				  </div>
 			</div>
@@ -68,8 +68,7 @@
 				    </tbody>
 				</table>
 				<ul class="login_details">
-			      <li>Already a member? <a href="login.html">Login Now</a></li>
-			      <li>If not a member? <a href="register.html">Register Now</a></li>
+			      <li><a href="{{ route('profile_update') }}"> <h3>Update Profile</h3> </a></li>
 			    </ul>
 			</div>
 			<div class="clearfix"> </div>
