@@ -306,7 +306,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="{{ asset('assets_frontend/images/logo.png')}}" alt="logo"></a>
+           <a class="brand" href="{{ url('/') }}"><img src="{{ asset('assets_frontend/images/logo.png')}}" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
 

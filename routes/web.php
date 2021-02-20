@@ -24,4 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 // frontend route start
 
 Route::get('/profile-update', 'frontend\ProfileController@profile_update')->name('profile_update');
+Route::post('/profile-update', 'frontend\ProfileController@profile_post_update')->name('profile.post.update');
+Route::get('/edit-lifestyle', 'frontend\ProfileController@editLifestyle')->name('edit_lifestyle');
 
