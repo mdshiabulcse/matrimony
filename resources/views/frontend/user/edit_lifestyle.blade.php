@@ -6,7 +6,7 @@
      <ul>
         <a href="{{ route('home') }}"><i class="fa fa-home home_1"></i></a>
         <span class="divider">&nbsp;|&nbsp;</span>
-        <li class="current-page">Edit lifestyle</li>
+        <li class="current-page">Edit Your About</li>
      </ul>
    </div>
    <!---728x90--->
@@ -48,45 +48,80 @@
 ?>
    <div class="services">
    	  <div class="col-sm-6 login_left">
-	     <form action="{{ route('profile.post.update') }}" method="post" enctype="multipart/form-data">
+	     <form action="{{ route('about.create') }}" method="post" enctype="multipart/form-data">
             @csrf
-
-
+<input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+            <div class="form-group">
+                <label for="edit-pass">Father Name <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-pass" name="father_name" value="" class="form-text required">
+              </div>
+              <div class="form-group">
+                <label for="edit-pass">Mother Name <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-pass" name="mother_name" value="" class="form-text required">
+              </div>
+              <div class="form-group">
+                <label for="edit-name">Father Occupation <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-name" name="father_ocupation" value="" size="60" maxlength="60" class="form-text required">
+              </div>
 	  	    <div class="form-group">
-		      <label for="edit-name">Profile Photo <span class="form-required" title="This field is required.">*</span></label>
-		      <input type="file" id="edit-name" name="avatar" value="" size="60" maxlength="60" class="form-text required">
+		      <label for="edit-name">Bio <span class="form-required" title="This field is required.">*</span></label>
+		     <textarea name="about" size="60" maxlength="60" class="form-text required" > </textarea>
+		    </div>
+
+		    <div class="form-group">
+		      <label for="edit-pass">Language <span class="form-required" title="This field is required.">*</span></label>
+		      <input type="text" id="edit-pass" name="mother_lang" value="" class="form-text required">
 		    </div>
 		    <div class="form-group">
-		      <label for="edit-pass">Name <span class="form-required" title="This field is required.">*</span></label>
-		      <input type="text" id="edit-pass" name="name" value="{{ Auth::user()->name }}" class="form-text required">
-		    </div>
-		    <div class="form-group">
-		      <label for="edit-name">Current Address <span class="form-required" title="This field is required.">*</span></label>
-		      <input type="text" id="edit-name" name="current_address" value="{{ Auth::user()->current_address }}" size="60" maxlength="60" class="form-text required">
+		      <label for="edit-name">Height <span class="form-required" title="This field is required.">*</span></label>
+		      <input type="text" id="edit-name" name="height" value="" size="60" maxlength="60" class="form-text required">
 		    </div>
             <div class="form-group">
-                <label for="edit-name">Home Town <span class="form-required" title="This field is required.">*</span></label>
-                <input type="text" id="edit-name" name="home_address" value="{{ Auth::user()->home_address }}" size="60" maxlength="60" class="form-text required">
+                <label for="edit-name">Weight <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-name" name="weight" value="" size="60" maxlength="60" class="form-text required">
               </div>
+              <div class="form-group">
+                <label for="edit-name">Blood Group <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-name" name="blood_group" value="" size="60" maxlength="60" class="form-text required">
+              </div>
+            <div class="form-group">
+                <label for="edit-name">Physical Status <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-name" name="physical_status" value="" size="60" maxlength="60" class="form-text required">
+              </div>
+              <div class="form-group">
+                <label for="edit-name">Education <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-name" name="education" value="" size="60" maxlength="60" class="form-text required">
+              </div>
+              <div class="form-group">
+                <label for="edit-name">Occupation <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-name" name="ocupation" value="" size="60" maxlength="60" class="form-text required">
+              </div>
+              <div class="form-group">
+                <label for="edit-name">Annual Incom <span class="form-required" title="This field is required.">*</span></label>
+                <input type="text" id="edit-name" name="anual_income" value="" size="60" maxlength="60" class="form-text required">
+              </div>
+
               <div class="form-group form-group1">
-                <label class="col-sm-7 control-lable" for="sex">Sex : </label>
-                <div class="col-sm-5">
-                    <div class="radios">
-				                <input type="radio" id="male" name="user_sex" value="1" {{ Auth::user()->user_sex == 1 ? 'checked':'' }}>
-                                <label for="male">Male</label>
-                                <input type="radio" id="female" name="user_sex" value="2" {{ Auth::user()->user_sex == 2 ? 'checked':'' }}>
-                                <label for="female">Female</label><br>
-	                </div>
-                </div>
-                <div class="clearfix"> </div>
-             </div>
+                <label class="col-sm-7 control-lable" for="sex">Maritial Status : </label>
+
+                <div class="radios">
+                            <input type="radio" id="male" name="maritial_status" value="Single" >
+                            <label for="male">Single</label>
+                            <input type="radio" id="female" name="maritial_status" value="Maried" >
+                            <label for="female">Maried</label>
+                            <input type="radio" id="female" name="maritial_status" value="Devorce" >
+                            <label for="female">Devorce</label>
+
+            </div>
+            </div>
 
 		    <div class="age_select">
-		      <label for="edit-pass">Date Of Birth <span class="form-required" title="This field is required.">*</span></label>
+
 		        <div class="age_grid">
 		         <div class="col-sm-4 form_box">
                   <div class="select-block1">
-                    <input type="date" id="edit-name" name="dob" value="{{ Auth::user()->dob }}" size="60" maxlength="60" class="form-text required">
+                    {{-- <label for="edit-pass">Date Of Birth <span class="form-required" title="This field is required.">*</span></label>
+                    <input type="date" id="edit-name" name="dob" value="{{ Auth::user()->dob }}" size="60" maxlength="60" class="form-text required"> --}}
                   </div>
             </div>
             <div class="col-sm-4 form_box2">

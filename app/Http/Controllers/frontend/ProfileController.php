@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Lifestyle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\User;
@@ -55,6 +56,32 @@ class ProfileController extends Controller
 
     public function editLifestyle(){
         return view('frontend.user.edit_lifestyle');
+    }
+    public function aboutCreate(Request $request){
+        $flight = new Lifestyle();
+
+        $flight->user_id = $request->user_id;
+        $flight->about = $request->about;
+        $flight->maritial_status = $request->maritial_status;
+        $flight->mother_lang = $request->mother_lang;
+        $flight->height = $request->height;
+        $flight->weight = $request->weight;
+        $flight->blood_group = $request->blood_group;
+        $flight->physical_status = $request->physical_status;
+        $flight->education = $request->education;
+        $flight->ocupation = $request->ocupation;
+        $flight->anual_income = $request->anual_income;
+        $flight->father_name = $request->father_name;
+        $flight->mother_name = $request->mother_name;
+        $flight->father_ocupation = $request->father_ocupation;
+
+        $flight->save();
+        return view('frontend.user.view_profile');
+    }
+    public function viewProfile($id){
+        $UserInfo=User::where('id',$id)->first();
+        $showAbout=Lifestyle::where('user_id',$id)->first();
+        return view('view-profile', compact('UserInfo','showAbout'));
     }
 }
 

@@ -40,13 +40,13 @@
             ?>
             <div class="profile">
                 <div class="col-md-8 profile_left">
-                    <h2>{{ Auth::user()->name }}</h2>
+                    <h2>{{ $UserInfo->name }}</h2>
                     <div class="col_3">
                         <div class="col-sm-4 row_2">
                             <div class="flexslider">
                                 <ul>
                                     <li data-thumb="assets_frontend/images/p1.jpg">
-                                        <img src="{{ url('/') }}/{{ Auth::user()->avatar }}"
+                                        <img src="{{ url('/') }}/{{ $UserInfo->avatar }}"
                                             style="height: 200px; width:250px" />
                                     </li>
                                     {{-- <li data-thumb="assets_frontend/images/p2.jpg">
@@ -68,31 +68,31 @@
                                 <tbody>
                                     <tr class="opened_1">
                                         <td class="day_label">Age / Height :</td>
-                                        <td class="day_value">28, 5ft 5in / 163cm</td>
+                                        <td class="day_value">{{ $UserInfo->dob }}, {{ $showAbout->height }}</td>
                                     </tr>
                                     <tr class="opened">
                                         <td class="day_label">Religion :</td>
-                                        <td class="day_value">Sikh</td>
+                                        <td class="day_value">Islam</td>
                                     </tr>
                                     <tr class="opened">
                                         <td class="day_label">Marital Status :</td>
-                                        <td class="day_value">Single</td>
+                                        <td class="day_value">{{ $showAbout->maritial_status }}</td>
                                     </tr>
                                     <tr class="opened">
                                         <td class="day_label">Location :</td>
-                                        <td class="day_value">India</td>
+                                        <td class="day_value">{{ $UserInfo->home_address }}</td>
                                     </tr>
                                     <tr class="closed">
                                         <td class="day_label">Education :</td>
-                                        <td class="day_value closed"><span>Engineering</span></td>
+                                        <td class="day_value closed"><span>{{ $showAbout->education }}</span></td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <ul class="login_details">
+                            {{-- <ul class="login_details">
                                 <li><a href="{{ route('profile_update') }}">
                                         <h3>Edit Profile</h3>
                                     </a></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -107,9 +107,9 @@
                                 {{-- <li role="presentation"><a href="#profile1" role="tab" id="profile-tab1" data-toggle="tab"
                                         aria-controls="profile1">Partner Preference</a></li> --}}
                             </ul>
-                            <li style="margin-left:566px; list-style:none"><a href="{{ route('edit_lifestyle') }}" >
+                            {{-- <li style="margin-left:566px; list-style:none"><a href="{{ route('edit_lifestyle') }}" >
                                 <h3>Edit</h3>
-                            </a></li>
+                            </a></li> --}}
                             <div id="myTabContent" class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
                                     <div class="tab_box">

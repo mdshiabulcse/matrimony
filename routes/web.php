@@ -25,5 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile-update', 'frontend\ProfileController@profile_update')->name('profile_update');
 Route::post('/profile-update', 'frontend\ProfileController@profile_post_update')->name('profile.post.update');
-Route::get('/edit-lifestyle', 'frontend\ProfileController@editLifestyle')->name('edit_lifestyle');
+Route::get('/edit-history', 'frontend\ProfileController@editLifestyle')->name('edit_lifestyle');
+Route::post('/edit-history', 'frontend\ProfileController@aboutCreate')->name('about.create');
+Route::get('/view-profile/{id}', 'frontend\ProfileController@viewProfile')->name('view.profile');
 

@@ -85,48 +85,22 @@
               <span class="grey-line"></span>
           </div>
           <ul id="flexiselDemo3">
-            <li><div class="col_1"><a href="{{ route('home') }}">
-              <img src="{{ asset('assets_frontend/images/1.jpg') }}" alt="" class="hover-animation image-zoom-in img-responsive"/>
-               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                  <div class="center-middle">About Him</div>
-               </div>
-               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-            </li>
-            <li><div class="col_1"><a href="view_profile.html">
-              <img src="images/2.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                  <div class="center-middle">About Her</div>
-               </div>
-               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-            </li>
-            <li><div class="col_1"><a href="view_profile.html">
-              <img src="images/3.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                  <div class="center-middle">About Him</div>
-               </div>
-               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-            </li>
-            <li><div class="col_1"><a href="view_profile.html">
-              <img src="images/4.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                  <div class="center-middle">About Her</div>
-               </div>
-               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-            </li>
-            <li><div class="col_1"><a href="view_profile.html">
-              <img src="images/5.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                  <div class="center-middle">About Him</div>
-               </div>
-               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-            </li>
-            <li><div class="col_1"><a href="view_profile.html">
-              <img src="images/6.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-               <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                  <div class="center-middle">About Her</div>
-               </div>
-               <h3><span class="m_3">Profile ID : MI-387412</span><br>28, Christian, Australia<br>Corporate</h3></a></div>
-            </li>
+              @php
+                  $allUsers = App\User::get()->all();
+              @endphp
+              @foreach ($allUsers as $allUser)
+              <?php if($allUser->status === 0) {?>
+              <li><div class="col_1"><a href="{{ route('view.profile', $allUser->id ) }}">
+                <img src="{{ url('/') }}/{{ $allUser->avatar }}" alt="" class="hover-animation image-zoom-in img-responsive"/>
+                 <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
+                    <div class="center-middle">About Him</div>
+                 </div>
+                 <h3><span class="m_3">NAME : {{ $allUser->name }}</span><br>{{ $allUser->home_address }}<br>Corporate</h3></a></div>
+              </li>
+              <?php } ?>
+              @endforeach
+
+
           </ul>
           <script type="text/javascript">
            $(window).load(function() {
@@ -159,7 +133,7 @@
       </div>
   </div>
   <!---728x90--->
-  <div class="grid_2">
+  {{-- <div class="grid_2">
       <div class="container">
           <h2>Success Stories</h2>
              <div class="heart-divider">
@@ -400,6 +374,6 @@
               </div>
               <div class="clearfix"> </div>
           </div>
-      </div>
+      </div> --}}
 
 @endsection
